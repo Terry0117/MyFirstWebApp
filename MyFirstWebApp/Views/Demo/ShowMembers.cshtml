@@ -1,4 +1,5 @@
 ﻿@using MyFirstWebApp.Models
+@model IEnumerable<Member>
 @{
     ViewBag.Title = "ShowMembers";
 }
@@ -20,13 +21,25 @@
     }
     @{
         <h3>使用ViewBag(不須引用Models的Member類別)</h3>
-        foreach (var member in ViewBag.Members )
+        foreach (var member in ViewBag.Members)
         {
             <label>會員編號：</label> @member.Id
             <br />
             <label>會員姓名：</label> @member.Name
             <br />
             <label>年齡：</label> @member.Age
+            <hr />
+        }
+    }
+    @{
+        <h3>使用View參數傳入</h3>
+        foreach (var member in Model)
+        {
+            <label>會員編號:</label> @member.Id
+            <br />
+            <label>會員姓名:</label> @member.Name
+            <br />
+            <label>年齡:</label> @member.Age
             <hr />
         }
     }
